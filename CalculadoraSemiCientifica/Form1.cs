@@ -23,7 +23,6 @@ namespace CalculadoraSemiCientifica
             txtVisor.Text = "0";
             lblHistorico.Text = "";
 
-            // Cria o botão "Sobre" ao iniciar
             CriarBotaoSobre();
         }
 
@@ -33,7 +32,7 @@ namespace CalculadoraSemiCientifica
             Button btnSobre = new Button();
             btnSobre.Text = "Sobre";
             btnSobre.Size = new Size(80, 30);
-            btnSobre.Location = new Point(10, 10); // canto superior esquerdo
+            btnSobre.Location = new Point(10, 10); 
             btnSobre.Click += BtnSobre_Click;
 
             this.Controls.Add(btnSobre);
@@ -42,7 +41,7 @@ namespace CalculadoraSemiCientifica
         private void BtnSobre_Click(object sender, EventArgs e)
         {
             FormSobre sobre = new FormSobre();
-            sobre.ShowDialog(); // abre como modal
+            sobre.ShowDialog(); 
         }
 
         // --- MÉTODOS PARA OS BOTÕES NUMÉRICOS E OPERACIONAIS ---
