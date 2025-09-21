@@ -1,6 +1,6 @@
 ﻿# Calculadora Semi-Científica 🧮
 
-![Calculadora Demo](https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif)  
+![Calculadora Demo](https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif)
 
 
 Uma aplicação **Windows Forms em C#** que implementa uma calculadora semi-científica com operações básicas e funções adicionais.  
