@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblResumo.Text" xml:space="preserve">
+    <value>Uma aplicação Windows Forms em C# que implementa uma calculadora semi-científica com operações básicas e funções adicionais.
+
+O objetivo foi desenvolver uma interface intuitiva, com foco em usabilidade e design limpo.
+
+✨ Funcionalidades
+
+Operações aritméticas: adição (+), subtração (-), multiplicação (x) e divisão (/)
+Funções matemáticas:
+Raiz quadrada (√)
+Potenciação (xʸ)
+Teclado numérico de 0 a 9
+Botão igual (=) para calcular resultados
+Botão reset (C) para limpar o visor
+Interface gráfica em Windows Forms com visor alinhado à direita</value>
+  </data>
 </root>

@@ -22,43 +22,52 @@ namespace CalculadoraSemiCientifica
             InitializeComponent();
             txtVisor.Text = "0";
             lblHistorico.Text = "";
+
+            // Cria o botão "Sobre" ao iniciar
+            CriarBotaoSobre();
         }
 
-        // --- MÉTODOS PARA OS BOTÕES ---
+        // --- BOTÃO SOBRE ---
+        private void CriarBotaoSobre()
+        {
+            Button btnSobre = new Button();
+            btnSobre.Text = "Sobre";
+            btnSobre.Size = new Size(80, 30);
+            btnSobre.Location = new Point(10, 10); // canto superior esquerdo
+            btnSobre.Click += BtnSobre_Click;
 
+            this.Controls.Add(btnSobre);
+        }
+
+        private void BtnSobre_Click(object sender, EventArgs e)
+        {
+            FormSobre sobre = new FormSobre();
+            sobre.ShowDialog(); // abre como modal
+        }
+
+        // --- MÉTODOS PARA OS BOTÕES NUMÉRICOS E OPERACIONAIS ---
         private void btnNumero_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
 
-            // Se for uma nova digitação, limpa o visor antes
             if (novaDigitacao)
             {
                 txtVisor.Text = "";
                 novaDigitacao = false;
             }
 
-            // Impede múltiplos pontos decimais no visor
-            if (btn.Text == "." && txtVisor.Text.Contains("."))
-            {
-                return;
-            }
+            if (btn.Text == "." && txtVisor.Text.Contains(".")) return;
 
-            // Adiciona o dígito ao visor
             if (txtVisor.Text == "0" && btn.Text != ".")
-            {
                 txtVisor.Text = btn.Text;
-            }
             else
-            {
                 txtVisor.Text += btn.Text;
-            }
         }
 
         private void btnOperacao_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
 
-            // Se já há um primeiro número, realiza a operação anterior antes de salvar a nova
             if (operacao != "" && !novaDigitacao)
             {
                 double segundoNumero = Convert.ToDouble(txtVisor.Text);
@@ -68,19 +77,11 @@ namespace CalculadoraSemiCientifica
                     case "-": primeiroNumero -= segundoNumero; break;
                     case "x": primeiroNumero *= segundoNumero; break;
                     case "/":
-                        if (segundoNumero != 0)
-                        {
-                            primeiroNumero /= segundoNumero;
-                        }
-                        else
-                        {
-                            txtVisor.Text = "Divisão por Zero";
-                            return;
-                        }
+                        if (segundoNumero != 0) primeiroNumero /= segundoNumero;
+                        else { txtVisor.Text = "Divisão por Zero"; return; }
                         break;
                     case "x^y": primeiroNumero = Math.Pow(primeiroNumero, segundoNumero); break;
                 }
-                // Exibe o resultado intermediário no visor, e a operação no histórico
                 lblHistorico.Text = primeiroNumero.ToString() + " " + btn.Text;
                 txtVisor.Text = primeiroNumero.ToString();
             }
@@ -108,31 +109,20 @@ namespace CalculadoraSemiCientifica
                 case "-": resultado = primeiroNumero - segundoNumero; break;
                 case "x": resultado = primeiroNumero * segundoNumero; break;
                 case "/":
-                    if (segundoNumero != 0)
-                    {
-                        resultado = primeiroNumero / segundoNumero;
-                    }
-                    else
-                    {
-                        txtVisor.Text = "Divisão por Zero";
-                        return;
-                    }
+                    if (segundoNumero != 0) resultado = primeiroNumero / segundoNumero;
+                    else { txtVisor.Text = "Divisão por Zero"; return; }
                     break;
                 case "x^y": resultado = Math.Pow(primeiroNumero, segundoNumero); break;
             }
 
-            // Exibe a expressão completa no histórico e o resultado no visor principal
             lblHistorico.Text = expressaoCompleta;
             txtVisor.Text = resultado.ToString();
-
-            // Prepara para uma nova conta, usando o resultado como primeiro número
             primeiroNumero = resultado;
             operacao = "";
             novaDigitacao = true;
         }
 
-        // --- Outros métodos de função ---
-
+        // --- OUTROS MÉTODOS ---
         private void btnC_Click(object sender, EventArgs e)
         {
             txtVisor.Text = "0";
@@ -164,15 +154,8 @@ namespace CalculadoraSemiCientifica
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            if (txtVisor.Text.Length > 1)
-            {
-                txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
-            }
-            else
-            {
-                txtVisor.Text = "0";
-                novaDigitacao = true;
-            }
+            if (txtVisor.Text.Length > 1) txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
+            else { txtVisor.Text = "0"; novaDigitacao = true; }
         }
 
         private void btnXY_Click(object sender, EventArgs e)
@@ -192,28 +175,17 @@ namespace CalculadoraSemiCientifica
             novaDigitacao = true;
         }
 
-        private void txtVisor_TextChanged(object sender, EventArgs e)
+        private void txtVisor_TextChanged(object sender, EventArgs e) { }
+        private void lblHistorico_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void Calculadora_Load(object sender, EventArgs e) { }
+        private void txtVisor_TextChanged_1(object sender, EventArgs e) { }
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            FormSobre sobre = new FormSobre();
 
-        }
-
-        private void lblHistorico_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Calculadora_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtVisor_TextChanged_1(object sender, EventArgs e)
-        {
+            sobre.ShowDialog();
 
         }
     }

@@ -249,12 +249,14 @@
             // 
             // btnIgual
             // 
+            this.btnIgual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnIgual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnIgual.Location = new System.Drawing.Point(187, 415);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(226, 70);
             this.btnIgual.TabIndex = 6;
             this.btnIgual.Text = "=";
-            this.btnIgual.UseVisualStyleBackColor = true;
+            this.btnIgual.UseVisualStyleBackColor = false;
             this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
             // 
             // txtVisor
@@ -279,8 +281,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Thistle;
-            this.ClientSize = new System.Drawing.Size(451, 502);
+            this.BackColor = System.Drawing.Color.Plum;
+            this.ClientSize = new System.Drawing.Size(451, 504);
             this.Controls.Add(this.lblHistorico);
             this.Controls.Add(this.txtVisor);
             this.Controls.Add(this.btnIgual);
