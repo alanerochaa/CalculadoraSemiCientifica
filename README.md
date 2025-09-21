@@ -1,5 +1,8 @@
 ﻿# Calculadora Semi-Científica 🧮
 
+![Calculadora Demo](https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif)  
+
+
 Uma aplicação **Windows Forms em C#** que implementa uma calculadora semi-científica com operações básicas e funções adicionais.  
 O objetivo foi desenvolver uma interface intuitiva, com foco em usabilidade e design limpo.
 
@@ -40,9 +43,6 @@ A aplicação foi desenvolvida em Windows Forms no **Visual Studio 2022**, utili
 3. Compile e execute o projeto pressionando F5
 
 ---
-
-
-## 📷 Demonstração
 
 
 ## 👩‍💻 Autoria
